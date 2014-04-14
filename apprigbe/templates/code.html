@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-static/ico/favicon.png">
+
+    <title>RIGBE - Personal Web page </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/main.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+<!--
+.style2 {font-size: 14px}
+.style4 {font-size: 14px; font-weight: bold; }
+-->
+    </style>
+</head>
+
+  <body>
+
+    <!-- /..static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+         <a class="navbar-brand" href="{{ url_for('index') }}">Rigbe</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ url_for('work') }}">Work</a></li>
+			<li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('code') }}">Code</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div
+
+	<!-- +++++ Welcome Section +++++ -->
+	<div id="ww">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 centered">
+				  <h1>Python Scripts</h1>
+					<p>Here are some python scripts I have written. These are the short ones. I have written scripts which are much longer than these</p>
+				
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
+	
+	
+	<!-- +++++ Information Section +++++ -->
+	
+	<div class="container pt">
+	
+		<div class="col-lg-6">	
+			<h4 class="style2">code for mirroring tables from UCSC database, esp when you need to perform heavy queries which are not allowed on this DB</h4>
+			
+			 <p class="style2">#!/usr/bin/env python<br>
+                      # -*- coding: utf-8 -*-</p>
+                      <p class="style2">#script that mirrors the tables snp135 and KnownGene of the ucsc database in to a local sqlite db at 'projects/hg19.db'</p>
+                      
+                      <p class="style2">from cruzdb import Genome<br>
+                        from sqlalchemy import *</p>
+                      
+                      <p class="style2">create_engine('sqlite:////projects/hg19.db')<br>
+                        Genome('hg19').mirror([&quot;snp135&quot;,&quot;knownGene&quot;], &quot;sqlite:////projects/hg19.db&quot;)</p>
+                    <p></p>
+
+	  </div>
+			
+			<div class="col-lg-6" style="border-left:dashed">	
+			<h4 class="style2">Function that finds all the genes with in 1MB of the marker in the UCSC DB</h4>
+			 <p class="style2">#!/usr/bin/env python<br>
+                      # -*- coding: utf-8 -*-</p>
+                      <p>def snp_gene(marker_id):
+    <p class="style2">db = MySQLdb.connect(host="genome-mysql.cse.ucsc.edu",user="genome",db="hg19")</p>
+    
+     <p class="style2">cur = db.cursor()</p>
+     <p class="style2">cur.execute("SELECT K.proteinID,K.name,S.name,S.chrom,S.chromStart,S.chromEnd,S.alleleFreqs FROM snp135 as S left join knownGene as K on(S.chrom=K.chrom and not(K.txEnd+1000000< S.chromStart or S.chromEnd+1000000< K.txStart)) WHERE S.name=%s ",(marker_id))</p>
+      <p class="style2">for row in cur.fetchall() :</p>
+        <p class="style2">yield row</p>
+                     
+
+		  </div>
+		
+<p>&nbsp; </p>
+			<div class ="row" style="border-top:dashed">
+			<h4 class="style2">A module that contains functions that compare two variants(based on their chromosomes and positions) and that check if a variant is homo/heterozygous</h4>
+			  <p>#!/usr/bin/env python<br>
+  # -*- coding: utf-8 -*-</p>
+                      <p class="style2">#function that returns true if two variants are the same and false otherwise</p>
+                      
+                      <p class="style2">def check_comm_var(ch1,pos1,ch2,pos2):<br/>
+    if ch1==ch2 and pos1==pos2:<br/>
+        return True<br/>
+    else:<br/>
+        return False<br/></p>
+                      <p class="style2">#function that returns true if a variant is homozygous, false otherwise</p>
+                      
+                      <p class="style2">def check_homo(c_ratio):<br/>
+     if 0 <= c_ratio and c_ratio <=0.2:<br/>
+        return True<br/>
+    else:<br/>
+        return False<br/></p>
+		
+		             
+              <p class="style2">#function that returns true if a variant is heterozygous or wildtype, false otherwise</p>
+                      
+                      <p class="style2"><strong>def check_hetero_wt(c_ratio)<br/>
+  if 0.2 < c_ratio and c_ratio <=1:<br/>
+        return True<br/>
+    else:<br/>
+        return False</strong><br/>
+              </p>
+		 </div>
+
+			
+		
+		
+	</div><!-- /container -->
+	
+	
+	<!-- +++++ Footer Section +++++ -->
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				
+				
+					
+					<p>This website was powered by flask and twitter bootstrap.</p>
+				
+			
+			</div>
+		
+		</div>
+	</div>
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/bootstrap.min.js"></script>
+  </body>
+</html>

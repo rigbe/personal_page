@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-static/ico/favicon.png">
+
+    <title>RIGBE - Personal web page </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/main.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../static/js/hover.zoom.js"></script>
+    <script src="../static/js/hover.zoom.conf.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url_for('index') }}">Rigbe</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ url_for('work') }}">Work</a></li>
+			<li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('code') }}">Code</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div
+
+	<!-- +++++ Welcome Section +++++ -->
+	<div id="ww">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 centered">
+					<img src="../static/img/rigbe4.jpg" alt="Rigbe">
+					<h1>Hello, Welcome to my page!</h1>
+					<p>My name is <strong>Rigbe G. Weldatsadik</strong>. I am a masters student in Bioinformatics at Aalto University</p>
+					<p>This is my personal site for introducing myself, posting about my experiences and future aspirations.</p>
+					<p>Please follow the links above to see some of my works and sample codes</p>
+				
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
+	
+	
+	<!-- +++++ Projects Section +++++ -->
+	<div class="container pt">
+	<div class="row">
+			<div class="col-lg-6">
+				<h4>Work experience</h4>
+				<p>* From June 2013 to August 2013 (Summer internship), FIMM. During this time I developed python scripts that were used to analyze MS-associated data.</p>
+								<p>* From January 2011 to August 2012, Akila computer solutions. I developed a patient tracking software. </p>
+
+								<p>* From March 2008 to April 2009, AHHA plc. I lead the IT team which was responsible in handling the online existence of the company.</p>
+				                <p> * From March 2007 to April 2008, 360 Ground. I participated in various system development tasks.</p>
+				                <p>* From March 2009 to August 2009, Kemi-Tornio University of Applied Sciences. Participated in creating student profiles using microsoft sharepoint and updated websites.</p>
+				                <p>* From October 2005 to February 2008, Microlink Information Technology College. Taught various IT related courses.</p>
+
+				
+			</div>
+			<div class="col-lg-6">
+				<h4>Competencies</h4>
+				<p>python, (both in scripting and in building web pages like this one), R, C++, php, ASP, HTML, CSS, javascript, Microsoft sharepoint</p>
+				
+				
+			</div>
+			
+			<div class="col-lg-6">
+				<h4>Education</h4>
+				<p>Bsc In Information Systems from Addis Ababa University. Final industrial project was automating the store system of Ethiopian Electric and Power corporation.</p>
+				<p>Masters courses in computer science including distributed systems, data mining , advanced topics in information systems and object oriented software development from Addis Ababa University</p>
+				<p></p>
+				
+			</div>
+	</div>
+	</div>
+	
+	
+	<!-- +++++ Footer Section +++++ -->
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				
+				
+					
+					<p>This website was powered by flask and twitter bootstrap.</p>
+				
+			
+			</div>
+		
+		</div>
+	</div>
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="static/js/bootstrap.min.js"></script>
+  </body>
+</html>
